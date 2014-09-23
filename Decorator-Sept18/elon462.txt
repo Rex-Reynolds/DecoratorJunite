@@ -1,0 +1,11 @@
+September 18 is the eighth class on Design Patterns. We are 
+25% done with the course.
+
+We have covered three design patterns: Strategy, Observer
+and Decorator. Homework 2 will demonstrate our hands on 
+understanding of Strategy and Observer.
+
+Homework 3 will demonstrate our hands of understanding of
+Decorator and Java I/O.
+
+The ETS test is on November 13 at 12:25PM in Long 106.
