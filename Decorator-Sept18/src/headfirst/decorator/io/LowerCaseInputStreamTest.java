@@ -26,9 +26,11 @@ public class LowerCaseInputStreamTest {
 	BufferedInputStream fileStream;
 
 	byte[] byte1 = new byte[10000000];
-	byte[] byte2 = new byte[10000000];
 	int a;
+	byte[] byte2 = new byte[10000000];
 	int b;
+	StringBuilder builder1 = new StringBuilder();
+	StringBuilder builder2 = new StringBuilder();
 
 	/**
 	 * @throws java.lang.Exception
@@ -38,7 +40,7 @@ public class LowerCaseInputStreamTest {
 		lowerStream = new LowerCaseInputStream(new BufferedInputStream(
 				new FileInputStream("CapsFile.txt")));
 		fileStream = new BufferedInputStream(new FileInputStream("NoCaps.txt"));
-
+		
 	}
 
 	/**
@@ -48,9 +50,11 @@ public class LowerCaseInputStreamTest {
 	public void tearDown() throws Exception {
 
 		lowerStream = null;
-		fileStream = null;
 		a = 0;
+		builder1 = null;
+		fileStream = null;
 		b = 0;
+		builder2 = null;
 
 	}
 
@@ -62,8 +66,7 @@ public class LowerCaseInputStreamTest {
 	 */
 	@Test
 	public void testRead() throws IOException {
-		StringBuilder builder1 = new StringBuilder();
-		StringBuilder builder2 = new StringBuilder();
+
 
 		while ((a = lowerStream.read()) >= 0) {
 			builder1.append((char) a);
@@ -78,14 +81,15 @@ public class LowerCaseInputStreamTest {
 	 * Test method for
 	 * {@link headfirst.decorator.io.LowerCaseInputStream#read(byte[], int, int)}
 	 * .
-	 * @throws IOException 
+	 * 
+	 * @throws IOException
 	 */
 	@Test
 	public void testReadByteArrayIntInt() throws IOException {
 		while ((lowerStream.read(byte1, 10, 30)) >= 0) {
 		}
 		while ((fileStream.read(byte2, 10, 30)) >= 0) {
-	}
+		}
 		assertTrue(Arrays.equals(byte1, byte2));
-}
+	}
 }
